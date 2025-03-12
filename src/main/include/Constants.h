@@ -1,6 +1,5 @@
 #pragma once
 
-#pragma region Includes
 #include <iostream>
 #include <string>
 
@@ -16,9 +15,7 @@
 #include <units/time.h>
 #include <units/velocity.h>
 #include <units/voltage.h>
-#pragma endregion
 
-#pragma region CanConstants
 namespace CanConstants
 {
     const     auto CanBus                            = "rio";
@@ -41,9 +38,7 @@ namespace CanConstants
 
     constexpr int ElevatorMotorCanId                 = 20;
 }
-#pragma endregion
 
-#pragma region ChassisConstants
 namespace ChassisConstants
 {
     constexpr auto NumberOfSwerveModules           =     4;
@@ -60,9 +55,7 @@ namespace ChassisConstants
     constexpr auto SwerveMotorRevolutions          =    21.5;                                 // The number of motor revolutions per wheel revolutions
     constexpr auto SwerveDegreesToMotorRevolutions = 180.0 / (SwerveMotorRevolutions / 2.0);  // Degrees to motor revolutions
 }
-#pragma endregion
 
-#pragma region SwerveConstants
 namespace SwerveConstants
 {
     constexpr auto FrontRightIndex        = 0;
@@ -79,9 +72,7 @@ namespace SwerveConstants
     constexpr auto I                      = 0.000;
     constexpr auto D                      = 0.010;    
 }
-#pragma endregion
 
-#pragma region ElevatorContants
 namespace ElevatorContants
 {
     constexpr auto S                               = 0.25;             // Static Friction: Add [voltage] output to overcome static friction
@@ -99,9 +90,7 @@ namespace ElevatorContants
 
     constexpr auto PositionToTurnsConversionFactor = 1.0;
 }
-#pragma endregion
 
-#pragma region ControllerConstants
 namespace ControllerConstants
 {
     constexpr auto DriverControllerUsbPort =   0;
@@ -118,17 +107,13 @@ namespace ControllerConstants
     constexpr auto ExponentStrafe          = 2.0;
     constexpr auto ExponentAngle           = 2.0;
 }
-#pragma endregion
 
-#pragma region Extreme3DContants
 namespace Extreme3DContants
 {
     constexpr auto HandleLowerLeft  = 3;
     constexpr auto HandleLowerRight = 4;
 }
-#pragma endregion
 
-#pragma region xBoxConstants
 namespace XBoxConstants
 {
     constexpr auto A                 =   1;
@@ -151,9 +136,7 @@ namespace XBoxConstants
     constexpr auto Pov_270           = 270;
     constexpr auto Pov_315           = 315;
 }
-#pragma endregion
 
-#pragma region ApriltagConstants
 namespace ApriltagConstants
 {
     // Magic camera values:
@@ -172,9 +155,7 @@ namespace ApriltagConstants
 
     constexpr auto LengthOfTagsInches      = 6.5;
 }
-#pragma endregion
 
-#pragma region LedConstants
 namespace LedConstants
 {
     constexpr auto Length      =  40;  // The length of the LED string
@@ -188,4 +169,4 @@ namespace LedConstants
     constexpr auto StrobeDelay =  20;  // The delay between strobe flashes
     constexpr auto HvaDelay    =  20;  // The delay between HVA color changes
 }
-#pragma endregion
+

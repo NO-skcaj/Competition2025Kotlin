@@ -1,6 +1,5 @@
 #include "commands/ChassisDriveTime.h"
 
-#pragma region ChassisDriveTime (constructor)
 /// @brief Command to drive the robot the specified time.
 /// @param time The time to drive the robot.
 /// @param speed The speed to perform the drive.
@@ -13,9 +12,8 @@ ChassisDriveTime::ChassisDriveTime(units::second_t time, double speed, Drivetrai
     // Declare subsystem dependencies
     AddRequirements(drivetrain);
 }
-#pragma endregion
 
-#pragma region Initialize
+
 /// @brief Called just before this Command runs the first time.
 void ChassisDriveTime::Initialize()
 {
@@ -28,18 +26,16 @@ void ChassisDriveTime::Initialize()
     // Get the start time
     m_startTime = frc::GetTime();
 }
-#pragma endregion
 
-#pragma region Execute
+
 /// @brief Called repeatedly when this Command is scheduled to run.
 void ChassisDriveTime::Execute()
 {
     // Start driving
     m_drivetrain->Drive(m_speed, 0.0, 0.0);
 }
-#pragma endregion
 
-#pragma region IsFinished
+
 /// @brief Indicates if the command has completed. Make this return true when this Command no longer needs to run execute().
 /// @return True is the command has completed.
 bool ChassisDriveTime::IsFinished()
@@ -51,9 +47,8 @@ bool ChassisDriveTime::IsFinished()
     // Still driving
     return false;
 }
-#pragma endregion
 
-#pragma region End
+
 /// @brief Called once after isFinished returns true.
 /// @param interrupted Indicated that the command was interrupted.
 void ChassisDriveTime::End(bool interrupted)
@@ -64,4 +59,4 @@ void ChassisDriveTime::End(bool interrupted)
     // Restore the field centricity
     m_drivetrain->SetFieldCentricity(m_fieldCentricity);
 }
-#pragma endregion
+

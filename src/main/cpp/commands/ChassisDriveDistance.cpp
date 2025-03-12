@@ -1,6 +1,5 @@
 #include "commands/ChassisDriveDistance.h"
 
-#pragma region ChassisDriveDistance (constructor)
 /// @brief Command to drive the robot the specified distance.
 /// @param distance The distance to drive the robot.
 /// @param speed The speed to perform the drive.
@@ -13,9 +12,8 @@ ChassisDriveDistance::ChassisDriveDistance(double distance, double speed, Drivet
     // Declare subsystem dependencies
     AddRequirements(drivetrain);
 }
-#pragma endregion
 
-#pragma region Initialize
+
 /// @brief Called just before this Command runs the first time.
 void ChassisDriveDistance::Initialize()
 {
@@ -25,18 +23,16 @@ void ChassisDriveDistance::Initialize()
     // Do not use field coordinates
     m_drivetrain->SetFieldCentricity(false);
 }
-#pragma endregion
 
-#pragma region Execute
+
 /// @brief Called repeatedly when this Command is scheduled to run.
 void ChassisDriveDistance::Execute()
 {
     // Start driving
     m_drivetrain->Drive(m_speed, 0.0, 0.0);
 }
-#pragma endregion
 
-#pragma region IsFinished
+
 /// @brief Indicates if the command has completed. Make this return true when this Command no longer needs to run execute().
 /// @return True is the command has completed.
 bool ChassisDriveDistance::IsFinished()
@@ -44,9 +40,8 @@ bool ChassisDriveDistance::IsFinished()
     // Execute only runs once
     return true;
 }
-#pragma endregion
 
-#pragma region End
+
 /// @brief Called once after isFinished returns true.
 /// @param interrupted Indicated that the command was interrupted.
 void ChassisDriveDistance::End(bool interrupted)
@@ -57,4 +52,4 @@ void ChassisDriveDistance::End(bool interrupted)
     // Restore the field centricity
     m_drivetrain->SetFieldCentricity(m_fieldCentricity);
 }
-#pragma endregion
+

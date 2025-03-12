@@ -1,6 +1,5 @@
 #include "subsystems/DriveTrain.h"
 
-#pragma region Drivetrain (constructor)
 /// @brief Class constructor for the DriveTrain subassembly.
 /// Swerve Module Indexes:
 ///
@@ -30,18 +29,14 @@ Drivetrain::Drivetrain()
                                          CanConstants::SwerveRearRightAngleMotorCanId,
                                          CanConstants::SwerveRearRightAngleEncoderCanId);
 }
-#pragma endregion
 
-#pragma region Periodic
 /// @brief This method will be called once periodically.
 void Drivetrain::Periodic()
 {
     frc::SmartDashboard::PutNumber("Gyro Angle",        GetHeading().value());
     frc::SmartDashboard::PutBoolean("Field Centricity", m_fieldCentricity);
 }
-#pragma endregion
 
-#pragma region Drive
 /// @brief Method to drive the robot chassis.
 /// @param forward The forward operater input.
 /// @param strafe The strafe operater input.
@@ -89,9 +84,7 @@ void Drivetrain::Drive(double forward, double strafe, double angle)
     frc::SmartDashboard::PutNumber("Vector Rear Right Drive",  m_swerveModule[3]->GetWheelVector()->Drive);
     frc::SmartDashboard::PutNumber("Vector Rear Right Angle",  m_swerveModule[3]->GetWheelVector()->Angle);
 }
-#pragma endregion
 
-#pragma region SetFieldCentricity
 /// @brief Method to set the robot control field centricity.
 /// @param fieldCentric Boolean to indicate if the robor control should be field centric.
 void Drivetrain::SetFieldCentricity(bool fieldCentric)
@@ -99,9 +92,7 @@ void Drivetrain::SetFieldCentricity(bool fieldCentric)
     // Set the field centric member variable
     m_fieldCentricity = fieldCentric;
 }
-#pragma endregion
 
-#pragma region GetFieldCentricity
 /// @brief Method to set the field centricity.
 /// @return The field centricity setting.
 bool Drivetrain::GetFieldCentricity()
@@ -109,9 +100,7 @@ bool Drivetrain::GetFieldCentricity()
     // Return the field centricity setting
     return m_fieldCentricity;
 }
-#pragma endregion
 
-#pragma region GetSwerveModuleWheelVector
 /// <summary>
 /// Method to get the specified swerve module wheel vector.
 /// </summary>
@@ -122,9 +111,7 @@ WheelVector* Drivetrain::GetSwerveModuleWheelVector(int swerveModuleIndex)
     // Get the specified swerve module wheel vector
     return m_swerveModule[swerveModuleIndex]->GetWheelVector();
 }
-#pragma endregion
 
-#pragma region FieldCentricAngleConversion
 /// <summary>
 /// Methiod to convert the forward and strafe into field centric values based on the gyro angle.
 ///
@@ -146,9 +133,7 @@ void Drivetrain::FieldCentricAngleConversion(double *forward, double *strafe, do
     *forward =  forwardParameter * cos(angle) + strafeParamewter * sin(angle);
     *strafe  = -forwardParameter * sin(angle) + strafeParamewter * cos(angle);
 }
-#pragma endregion
 
-#pragma region CalculateSwerveModuleDriveAndAngle
 /// <summary>
 /// Method to output an array of speed and rotation values for each swerve module for a drive train given
 /// the desired forward, strafe, and rotation.
@@ -196,9 +181,7 @@ void Drivetrain::CalculateSwerveModuleDriveAndAngle(double forward, double straf
     // Normalize the speed values
     NormalizeSpeed(wheelVector);
 }
-#pragma endregion
 
-#pragma region NormalizeSpeed
 /// @brief Method to normalize the Drive values for a Swerve Module.
 /// @param wheelVector Structure for returning the swerve module normalization for the drive motors.
 void Drivetrain::NormalizeSpeed(WheelVector wheelVector[])
@@ -214,9 +197,7 @@ void Drivetrain::NormalizeSpeed(WheelVector wheelVector[])
         for (auto wheelVectorIndex = 0; wheelVectorIndex < ChassisConstants::NumberOfSwerveModules; wheelVectorIndex++)
             wheelVector[wheelVectorIndex].Drive /= maxSpeed;
 }
-#pragma endregion
 
-#pragma region SetWheelAnglesToZero
 /// @brief Method to set the swerve wheel to the absoulute encoder angle then zero the PID controller angle.
 void Drivetrain::SetWheelAnglesToZero()
 {
@@ -226,9 +207,7 @@ void Drivetrain::SetWheelAnglesToZero()
     m_swerveModule[SwerveConstants::RearRightIndex]->SetWheelAngleToForward(SwerveConstants::RearRightForwardAngle);
     m_swerveModule[SwerveConstants::RearLeftIndex]->SetWheelAngleToForward(SwerveConstants::RearLeftForwardAngle);
 }
-#pragma endregion
 
-#pragma region GetHeading
 /// @brief Method to get the robot heading.
 /// @return The robot heading.
 units::degree_t Drivetrain::GetHeading()
@@ -236,4 +215,4 @@ units::degree_t Drivetrain::GetHeading()
     // Return the robot heading
     return (units::degree_t) m_navx.GetAngle();
 }
-#pragma endregion
+

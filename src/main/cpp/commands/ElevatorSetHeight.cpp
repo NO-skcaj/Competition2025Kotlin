@@ -16,7 +16,6 @@ void ElevatorSetHeight::Execute()
     m_elevator->SetHeight(m_height);
 }
 
-#pragma region IsFinished
 /// @brief Indicates if the command has completed. Make this return true when this Command no longer needs to run execute().
 /// @return True is the command has completed.
 bool ElevatorSetHeight::IsFinished()
@@ -24,5 +23,5 @@ bool ElevatorSetHeight::IsFinished()
     // Execute only runs once
     return true;
 }
-#pragma endregion
+
 
