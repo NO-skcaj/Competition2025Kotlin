@@ -10,7 +10,7 @@ targetCompatibility = JavaVersion.VERSION_11
 
 def javaVersion = 17
 
-def ROBOT_MAIN_CLASS = "org.team3824.frc2025.Main"
+def ROBOT_MAIN_CLASS = "org.team3824.frc2025.MainKt"
 
 // Define my targets (RoboRIO) and artifacts (deployable files)
 // This is added by GradleRIO's backing project DeployUtils.
